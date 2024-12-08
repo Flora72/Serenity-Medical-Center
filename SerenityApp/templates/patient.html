@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Management</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+     <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/patients.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'index' %}">Serenity Medical Center</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'queue_status' %}">Queue Status</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'patient' %}">Patients</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout_view' %}">LogOut</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-4">
+        <h2>Patient List</h2>
+        <a href="{% url 'register' %}" class="btn btn-primary mb-3">Add New Patient</a>
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Patient Name</th>
+                    <th>Department</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in patients %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ patient.name }}</td>
+                        <td>{{ patient.department.name }}</td>
+                        <td>{{ patient.priority }}</td>
+                        <td>
+                            <span style="
+                                {% if patient.status == 'waiting' %}
+                                    background-color: yellow; color: black;
+                                {% elif patient.status == 'in_queue' %}
+                                    background-color: blue; color: white;
+                                {% elif patient.status == 'under_observation' %}
+                                    background-color: orange; color: white;
+                                {% elif patient.status == 'discharged' %}
+                                    background-color: green; color: white;
+                                {% else %}
+                                    background-color: gray; color: white;
+                                {% endif %}
+                            " class="badge">{{ patient.get_status_display }}</span>
+                        </td>
+                        <td>
+                            <a href="{% url 'patient_edit' patient.id %}" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="{% url 'patient_delete' patient.id %}" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+    <footer class="text-center mt-4">
+        <p>&copy; 2024 Serenity Medical Center</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

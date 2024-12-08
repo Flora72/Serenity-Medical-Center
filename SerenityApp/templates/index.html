@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Medical Center</title>
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'index' %}">Serenity Medical Center</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+        z        </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'queue_status' %}">Queue Status</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'patient' %}">Patients</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout_view' %}">LogOut</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+   <main>
+    <section class="hero-section" style="background: url('{% static 'images/Image 2.jpg' %}') no-repeat center center/cover; height: 100vh; display: flex; justify-content: center; align-items: center; color: white; text-align: center;">
+        <div class="hero-content" style="background-color: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px;">
+            <h1 style="color: white;">Welcome to Serenity Medical Center</h1> <!-- Text color changed to white -->
+            <p>Your health, our priority.</p>
+            <a href="{% url 'register' %}" class="btn btn-primary btn-lg">Get Started</a>
+        </div>
+    </section>
+</main>
+
+    <footer>
+        <p>&copy; 2024 Serenity Medical Center</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

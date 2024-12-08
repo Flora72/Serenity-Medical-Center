@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Serenity Medical Center</title>
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+</head>
+<body>
+ <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'index' %}">Serenity Medical Center</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'queue_status' %}">Queue Status</a></li>
+                         <li class="nav-item"><a class="nav-link" href="{% url 'patient' %}">Patients</a></li>
+                         <li class="nav-item"><a class="nav-link" href="{% url 'department' %}">Department</a></li>
+                         <li class="nav-item"><a class="nav-link" href="{% url 'logout_view' %}">LogOut</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="content-background">
+        <section class="hero-section">
+            <h1>About Us</h1>
+            <p>Dedicated to providing exceptional healthcare services with a commitment to patient care and safety.</p>
+            <img src="{% static 'images/Our team.jpg' %}" alt="Our Team">
+        </section>
+
+        <section class="mission-section">
+            <h2>Our Mission</h2>
+            <p>To improve the health and well-being of our patients through high-quality, compassionate care. We strive to create a healing environment where patients feel valued and respected.</p>
+        </section>
+
+        <section class="services-section">
+            <h2>Services</h2>
+            <ul>
+                <li>General Medicine</li>
+                <li>Emergency Care</li>
+                <li>Pediatrics</li>
+                <li>Cardiology</li>
+                <li>Orthopedics</li>
+                <li>Gynecology</li>
+                <li>Dermatology</li>
+                <li>Radiology</li>
+                <li>Laboratory Services</li>
+            </ul>
+        </section>
+
+        <section class="team-section">
+            <h2>Meet Our Team</h2>
+            <div class="team-carousel">
+                <div class="team-member">
+                    <img src="{% static 'images/Doctor 1.jpg' %}" alt="Dr. Jane Smith">
+                    <h3>Dr. Jane Smith</h3>
+                    <p>Chief Medical Officer</p>
+                </div>
+                <div class="team-member">
+                    <img src="{% static 'images/Doctor 2.jpg' %}" alt="Dr. Chris Michael">
+                    <h3>Dr. Chris Michael</h3>
+                    <p>Head of Pediatrics</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h2>Contact Information</h2>
+            <p>For more information or to schedule an appointment, please contact us:</p>
+            <ul>
+                <li>Email: <a href="mailto:info@serenitymedicalcenter.com">info@serenitymedicalcenter.com</a></li>
+                <li>Phone: <a href="tel:+2541267890">+254 126 7890</a></li>
+                <li>Address: 00100 Wellness St., Nairobi </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Serenity Medical Center</p>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

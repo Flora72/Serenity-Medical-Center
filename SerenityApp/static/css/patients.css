@@ -1,0 +1,52 @@
+.queue-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.queue-table th, .queue-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.queue-table th {
+    background-color: #007BFF;
+    color: white;
+}
+
+.queue-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.queue-table tr:hover {
+    background-color: #ddd;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .queue-table th, .queue-table td {
+        padding: 8px;
+    }
+}
+
+.badge-waiting {
+    background-color: yellow;
+    color: black;
+}
+
+.badge-in_queue {
+    background-color: blue;
+    color: white;
+}
+
+.badge-under_observation {
+    background-color: orange;
+    color: white;
+}
+
+.badge-discharged {
+    background-color: green;
+    color: white;
+}
+
