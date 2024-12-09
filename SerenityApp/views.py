@@ -43,17 +43,19 @@ def queue_status(request):
         return HttpResponseRedirect(f"{reverse('login_view')}?next={request.path}")
 
     # Order patients by priority and registration time
-    patients = Patient.objects.filter(status='Waiting').order_by('priority', 'registered_at')
+    patients = Patient.objects.filter(status='waiting').order_by('priority', 'registered_at')
     patients_list = [{
         'id': patient.id,
         'name': patient.name,
         'department': patient.department.name if patient.department else 'N/A',
         'priority': patient.priority,
         'doctor_name': patient.doctor.name if patient.doctor else 'N/A',
-        'status': patient.status
     } for patient in patients]
 
     return render(request, 'queue_status.html', {'patients': patients_list})
+
+
+
 
 def mark_next_patient(request, id):
     patient = get_object_or_404(Patient, id=id)

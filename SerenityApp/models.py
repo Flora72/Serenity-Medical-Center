@@ -14,7 +14,6 @@ class Patient(models.Model):
     priority = models.CharField(max_length=50)
     doctor = models.ForeignKey('Doctor', on_delete=models.SET_NULL, null=True, blank=True)
     registered_at = models.DateTimeField(auto_now_add=True)
-    contact_number = models.CharField(max_length=15, blank=True, null=True)
     email = models.EmailField(max_length=100, blank=True, null=True)
 
     STATUS_CHOICES = [
