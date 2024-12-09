@@ -42,17 +42,11 @@ def queue_status(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(f"{reverse('login_view')}?next={request.path}")
 
-    # Order patients by priority and registration time
-    patients = Patient.objects.filter(status='waiting').order_by('priority', 'registered_at')
-    patients_list = [{
-        'id': patient.id,
-        'name': patient.name,
-        'department': patient.department.name if patient.department else 'N/A',
-        'priority': patient.priority,
-        'doctor_name': patient.doctor.name if patient.doctor else 'N/A',
-    } for patient in patients]
+    # Order patients by priority and registration time and fetch related department data
+    patients = Patient.objects.select_related('department').filter(status='waiting').order_by('priority', 'registered_at')
 
-    return render(request, 'queue_status.html', {'patients': patients_list})
+    return render(request, 'queue_status.html', {'patients': patients})
+
 
 
 
