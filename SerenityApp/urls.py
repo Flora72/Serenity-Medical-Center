@@ -14,7 +14,7 @@ urlpatterns = [
     path('patients/add/', views.patient_add, name='patient_add'),
     path('patients/<int:id>/delete/', views.patient_delete, name='patient_delete'),
     path('patients/<int:id>/next/', views.mark_next_patient, name='mark_next_patient'),
-    path('patients/<int:id>/edit/', views.patient_edit, name='patient_edit'),  # Add this line
-    path('patients/<int:id>/update/', views.patient_update, name='patient_update'),  # Add this line
+    path('patients/<int:id>/edit/', views.patient_edit, name='patient_edit'),
+    path('patients/<int:id>/update/', views.patient_update, name='patient_update'),
 ]
 

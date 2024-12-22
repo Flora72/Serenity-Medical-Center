@@ -26,7 +26,7 @@ def register(request):
             # Create Patient instance
             patient = Patient.objects.create(name=name, department=department, priority=priority, doctor=doctor)
             messages.success(request, f'Patient {patient.name} registered successfully!')
-            return redirect('patient')  # Updated to match the correct URL pattern
+            return redirect('patient')
         except Department.DoesNotExist:
             messages.error(request, 'The selected department does not exist.')
         except Doctor.DoesNotExist:
@@ -150,8 +150,6 @@ def contact(request):
         lastname = request.POST.get('lastname')
         country = request.POST.get('country')
         subject = request.POST.get('subject')
-
-        # You can add processing logic here (e.g., save data, send email, etc.)
 
         # After successful submission, set submitted to True
         submitted = True
